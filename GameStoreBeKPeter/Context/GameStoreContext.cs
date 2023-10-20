@@ -8,6 +8,7 @@ namespace GameStoreBeKPeter.Context
 {
     public class ContextBasic : DbContext
     {   
+        public ContextBasic(DbContextOptions<ContextBasic> opt) : base(opt) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
@@ -18,11 +19,6 @@ namespace GameStoreBeKPeter.Context
         }
         public DbSet<User> Users { get; set; }
         public DbSet<VideoGame> VideoGames { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=GamesInventory;Trusted_Connection=True");
-        }
        
     }
 }

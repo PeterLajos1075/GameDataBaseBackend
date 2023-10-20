@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<ContextBasic>(opt =>
 {
-    opt.UseSqlServer("@\"Server=(localdb)\\mssqllocaldb;Database=GamesInventory;Trusted_Connection=True\"");
+    opt.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=GamesInventory;Trusted_Connection=True");
 });
 
 
