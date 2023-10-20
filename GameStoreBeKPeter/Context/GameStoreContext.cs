@@ -13,12 +13,16 @@ namespace GameStoreBeKPeter.Context
             modelBuilder.Entity<User>()
                 .HasMany(e => e.VideoGames)
                 .WithMany(e => e.Users)
-                .UsingEntity<VIdeoGamesUser>();
+                .UsingEntity<VideoGamesUser>();
             
         }
-        public ContextBasic(DbContextOptions options) : base(options)
+        public DbSet<User> Users { get; set; }
+        public DbSet<VideoGame> VideoGames { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.UseSqlServer(
+                @"Server=(localdb)\mssqllocaldb;Database=GamesInventory;Trusted_Connection=True");
         }
+       
     }
 }
