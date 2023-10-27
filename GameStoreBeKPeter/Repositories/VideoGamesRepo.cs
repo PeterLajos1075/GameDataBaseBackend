@@ -3,7 +3,7 @@ using GameStoreBeKPeter.Context;
 
 namespace GameStoreBeKPeter.Repositories
 {
-    public class RepositoryBasic 
+    public class VideoGamesRepo 
     {
         
     }
