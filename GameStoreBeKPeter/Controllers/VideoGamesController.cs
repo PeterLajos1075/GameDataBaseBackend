@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GameStoreBeKPeter.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class VideoGamesController : ControllerBase
     {
         private readonly ICrud<VideoGame> _videoGameRepo;
@@ -16,6 +18,7 @@ namespace GameStoreBeKPeter.Controllers
 
 
         [HttpGet]
+        [Route("GetAll")]
         public async Task<IEnumerable<VideoGame>> ReadAll()
         {
             var all = await _videoGameRepo.ReadAll();
@@ -23,7 +26,8 @@ namespace GameStoreBeKPeter.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("GetById/{id}")]
         public async Task<ActionResult> ReadById(int id)
         {
             var videogame = await _videoGameRepo.ReadById(id);
@@ -36,6 +40,8 @@ namespace GameStoreBeKPeter.Controllers
 
 
         [HttpPost]
+        [Route("Create")]
+
         public async Task<ActionResult> Create(VideoGame videoGame)
         {
             await _videoGameRepo.Create(videoGame);
@@ -43,7 +49,9 @@ namespace GameStoreBeKPeter.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut]
+        [Route("Update/{id}")]
+
         public async Task<IActionResult> Update(int id,VideoGame entity)
         {
            if(id > 0)
@@ -55,7 +63,8 @@ namespace GameStoreBeKPeter.Controllers
         }
 
        
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("Delete/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             await _videoGameRepo.Delete(id);

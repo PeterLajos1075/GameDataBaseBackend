@@ -16,6 +16,7 @@ namespace GameStoreBeKPeter.Controllers
 
 
         [HttpGet]
+        [Route("GetAll")]
         public async Task<IEnumerable<User>> ReadAll()
         {
            var all = await _userRepository.ReadAll();
@@ -24,7 +25,8 @@ namespace GameStoreBeKPeter.Controllers
         
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("GetById/{id}")]
         public async Task<ActionResult> ReadById(int id)
         {
             var User = await _userRepository.ReadById(id);
@@ -38,6 +40,7 @@ namespace GameStoreBeKPeter.Controllers
 
 
         [HttpPost]
+        [Route("Create")]
         public async Task<ActionResult> Create(User user)
         {
              await _userRepository.Create(user);
@@ -46,7 +49,8 @@ namespace GameStoreBeKPeter.Controllers
 
 
  
-        [HttpPut("{id}")]
+        [HttpPut]
+        [Route("Update/{id}")]
         public async Task<IActionResult> Update(int id, User entity)
         {
             if(id > 0)
@@ -58,7 +62,8 @@ namespace GameStoreBeKPeter.Controllers
         }
 
         
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("Delete/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             await _userRepository.Delete(id);
