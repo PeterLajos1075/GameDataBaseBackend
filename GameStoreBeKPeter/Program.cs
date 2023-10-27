@@ -17,7 +17,7 @@ builder.Services.AddDbContext<ContextBasic>(opt =>
 });
 
 builder.Services.AddTransient < ICrud<User>, UsersRepo>();
-//builder.Services.AddTransient<ICrud<VideoGame>, VideoGamesRepo>();
+builder.Services.AddTransient<ICrud<VideoGame>, VideoGamesRepo>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
