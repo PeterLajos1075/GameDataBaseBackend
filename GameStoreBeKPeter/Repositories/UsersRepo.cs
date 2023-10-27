@@ -15,7 +15,7 @@ namespace GameStoreBeKPeter.Repositories
         
         public async Task<List<User>> ReadAll() => await _context.Users.ToListAsync();
 
-        public async Task<List<User>> ReadGetById(int id) => await _context.Users.Where(c => c.Id == id).ToListAsync();
+        public async Task<List<User>> ReadById(int id) => await _context.Users.Where(c => c.Id == id).ToListAsync();
 
 
         public async Task Create(User entity)
@@ -31,7 +31,7 @@ namespace GameStoreBeKPeter.Repositories
             {
                 data.Email = entity.Email;
                 data.PasswordHash = entity.PasswordHash;
-                await _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 
