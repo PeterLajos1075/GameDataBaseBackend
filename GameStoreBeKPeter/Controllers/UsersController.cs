@@ -5,11 +5,11 @@ namespace GameStoreBeKPeter.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ControllerBasic : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly ICrud<User> _userRepository;
 
-        public ControllerBasic(ICrud<User> userRepository)
+        public UserController(ICrud<User> userRepository)
         {
             _userRepository = userRepository;
         }
