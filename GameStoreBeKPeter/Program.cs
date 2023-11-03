@@ -16,8 +16,8 @@ builder.Services.AddDbContext<ContextBasic>(opt =>
     opt.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=GamesInventory;Trusted_Connection=True");
 });
 
-builder.Services.AddTransient < ICrud<User>, UsersRepo>();
-builder.Services.AddTransient<ICrud<VideoGame>, VideoGamesRepo>();
+builder.Services.AddTransient <ICrud<User>, UsersRepo>();
+builder.Services.AddTransient <ICrud<VideoGame>, VideoGamesRepo>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
