@@ -30,7 +30,6 @@ namespace GameStoreBeKPeter.Repositories
             if (data != null)
             {
                 data.Email = entity.Email;
-                data.PasswordHash = entity.PasswordHash;
                 await _context.SaveChangesAsync();
             }
         }

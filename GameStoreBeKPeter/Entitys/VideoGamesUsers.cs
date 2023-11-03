@@ -7,6 +7,8 @@ namespace GameStoreBeKPeter.VideoGamesUsers
     {
         public int UserId { get; set; }
         public int VideoGameId { get; set; }
+        public User? User { get; set; }
+        public VideoGame? VideoGame { get; set; }
 
     }
 }
