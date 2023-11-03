@@ -1,9 +1,8 @@
-﻿
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using GameStoreBeKPeter.Users;
+using System.Text.Json.Serialization;
 
 namespace GameStoreBeKPeter.VideoGames
 {
@@ -12,6 +11,7 @@ namespace GameStoreBeKPeter.VideoGames
     {
         [Key]
         public int Id { get; set; }
+        [JsonIgnore]
         public List<User> Users { get; } = new();
 
         [MaxLength(100,ErrorMessage ="MaxLength is 100")]

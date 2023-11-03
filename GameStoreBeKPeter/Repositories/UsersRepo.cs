@@ -1,6 +1,7 @@
 ﻿using GameStoreBeKPeter.Users;
 using GameStoreBeKPeter.Context;
 using Microsoft.EntityFrameworkCore;
+using GameStoreBeKPeter.VideoGames;
 
 namespace GameStoreBeKPeter.Repositories
 {
@@ -13,7 +14,7 @@ namespace GameStoreBeKPeter.Repositories
             _context = context;
         }
         
-        public async Task<List<User>> ReadAll() => await _context.Users.ToListAsync();
+        public async Task<List<User>> ReadAll() => await _context.Users.Include(c => c.VideoGames).ToListAsync();
 
         public async Task<List<User>> ReadById(int id) => await _context.Users.Where(c => c.Id == id).ToListAsync();
 
